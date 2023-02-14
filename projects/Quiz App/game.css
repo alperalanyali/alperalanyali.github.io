@@ -1,0 +1,63 @@
+body{
+    color:white
+}
+
+.choice-container{
+    display: flex;
+    margin-bottom: 1.5rem;
+    width: 100%;
+    background-color: rgb(18,93,253);
+    font-size: 3rem;
+    max-width: 80rem;   
+}
+.choice-container:hover{
+    cursor: pointer;
+    box-shadow: 0 0.4rem 1.4rem 0 rgb(6,105,247,0.5);
+    transform: scale(1.10);
+    transform: transform 100ms;
+}
+.choice-prefix{
+    padding: 2rem;
+    color:white
+}
+.choices-text{
+    padding: 2rem ;
+    width: 100%;
+    color:white;
+}
+.correct{
+    background: linear-gradient(32deg,rgba(11,223,36) 0%,rgb(42,232,111) 100%);
+}
+
+.incorrect{
+    background: linear-gradient(32deg,rgba(236,29,29,1) 0%,rgb(224,11,11) 100%);
+}
+
+#hud{
+    display: flex;
+    justify-content: space-between;
+}
+
+.hud-prefix{
+    text-align: center;
+    font-size: 2rem;
+}
+
+.hud-main-text{
+    text-align: center;
+}
+
+#progressbar{
+    width: 20rem;
+    height: 3rem;
+    border: 0.2rem solid rgb(11,223,36);
+    margin-top: 2rem;
+    border-radius: 50px;
+    overflow: hidden;
+}
+#progressBarFull{
+    height: 100%;
+    background:rgb(11,223,36);
+    width: 10%;
+
+}

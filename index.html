@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Alper ALANYALI | Fullstack Developer</title>
+    <link rel="stylesheet" href="./css/style.css">
+    <script src="https://kit.fontawesome.com/242ee111e2.js" crossorigin="anonymous"></script>
+</head>
+<body>
+    <header class="header">
+        <div class="header-content">
+            <div class="header-logo-container">
+                    <div class="header_logo-img-cont">
+                        <img src="./images/profilephoto.jpg" class="image">
+                    </div>
+                    <span class="header-logo-sub">Alper ALANYALI</span>
+            </div>
+            <div class="header-main">
+                <ul class="header-links">
+                    <li><a class="header-link" href="#">Home</a></li>
+                    <li><a class="header-link" href="#about">About</a></li>
+                    <li><a class="header-link" href="#projects">Projects</a></li>
+                    <li><a class="header-link" href="#contact">Contact</a></li>
+                </ul>
+            </div>
+            <ul class="short-navbar">
+                <li class="dropdown">
+                 <a class="btn-dropdown" href="#"> 
+                    <img src="https://d33wubrfki0l68.cloudfront.net/79e75114856ae61628d2ad26504e3ff4ab2c71b6/f06a4/assets/svg/ham-menu.svg">
+                 </a>
+                 <div class="dropdown-content">
+                     <a href="#">Home </a>
+                     <a href="#">About</a>
+                     <a href="#">Projects</a>
+                     <a href="#">Contact</a>                   
+                 </div>            
+                </li>
+         </ul>
+        </div>
+    </header>
+    <div class="content">
+        
+            <h1 class="primary">Hey, I'm Alper ALANYALI</h1>
+            <p class="text-primary">A Fullstack contributed to front-end and back-end development processes </p>
+            <div class="btn-container">
+                <a href="#projects" class="btn btn-yellow">Projects</a>
+            </div>
+    </div>
+    <section id="about" class="about">
+            <span class="sec-main">About me</span>
+            <p class="sec-sub">Here you will find more information about me, what I do, and my current skills mostly in terms of programming and technology</p>
+            <div class="about-content">
+                <div class="about-main">
+                    <h3 class="about-content-title">Get to know me!</h3>
+                    <p>I'm a <strong>Full Stack Developer</strong> building the Front-end of website and Back-end of Website and Web Applications  that leads to the success of the overall product. Check out some of my work in the Projects section.</p>
+                    
+                    <p class="about-content-detail-para">I also like sharing content related to the stuff that I have learned over the years in Web Development so it can help other people of the Dev Community. Feel free to Connect or Follow me on my <a href="https://www.linkedin.com/in/alper-a-045b41a4/" target="_blank">Linkedin</a> where I post useful content related to Web Development and Programming</p>
+                </div>
+                <div >
+                    <h3  class="about-content-title">Skills</h3>
+                    <div class="skills">
+                            <div class="skill">HTML</div>
+                            <div class="skill">CSS</div>
+                            <div class="skill">Javascript</div>
+                            <div class="skill">React</div>
+                            <div class="skill">Angular</div>
+                            <div class="skill">GIT</div>
+                            <div class="skill">Github</div>
+                            <div class="skill">Express Basics</div>
+                            <div class="skill">C#</div>
+                            <div class="skill">Entity Framework</div>
+                            <div class="skill">NodeJs Basics</div>
+                            <div class="skill">Python Basics</div>
+                            <div class="skill">SQL</div>
+                    </div>
+                </div>
+            </div>
+    </section>
+    <section id="projects">
+        <span class="sec-main">Projects</span>
+
+        <div class="row">
+                <div class="col-4 project1">
+                    <a href ='./projects/Music Player/index.html' target="_blank">
+                        <h3>Music Player</h3>
+                    </a>
+                </div>
+                <div class="col-4 project2">
+                    <a href="./projects/Calculator/calculator.html" target="_blank">
+                        <h3>Calculator</h3>
+                    </a>
+            </div>
+            <div class="col-4 project3">
+                <a href="./projects/Dictionary App/index.html" target="_blank">
+                    <h3>Dictionary</h3>
+                </a>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-4 project6">
+                <a href ='./projects/Quiz App/index.html' target="_blank">
+                    <h3>Quiz Game</h3>
+                </a>
+            </div>
+            <div class="col-4 project5">
+                <a href="./projects/SortableList App/index.html" target="_blank">
+                    <h3>Sortable List Game</h3>
+                </a>
+        </div>
+        <div class="col-4 project4">
+            <a href="./projects/BookList App/index.html" target="_blank">
+                <h3>BookList </h3>
+            </a>
+        </div>
+    </div>
+    </section>
+    <section id="contact">
+        <span class="sec-main">Contract</span>
+        <span class="sec-sub">Feel free to Contact me by submitting the form below and I will get back to you as soon as possible</span>
+        <div  class="contact-form-container">
+                <form method="post" id="contactform" class="contact-form">
+                    <input type="hidden" name="form-name" value="form 1">
+                    <div class="form-field">
+                        <label class="form-label">Email</label>
+                        <input  required type="email" name="email" id="email" class="form-input">
+                    </div>
+                    <div class="form-field">
+                            <label class="form-label">Subject</label>
+                            <input required type="text" name="subject" id="subject" class="form-input">
+                    </div>
+                   
+                    <div class="form-field">
+                        <label class="form-label">Message</label>
+                        <textarea id="message" required cols="10" rows="5" class="form-input"></textarea>
+                    </div>
+                    <button class="btn btn-theme contact-btn" type="submit">Submit</button>
+                </form>
+        </div>
+    </section>
+    <div class="social-container">
+            <div class="social">
+                    <a class="social-icon-link" href="https://www.linkedin.com/in/alper-a-045b41a4/" target="_blank"> <i class="fa-brands fa-linkedin blackTitle" ></i></a>
+            </div>
+            <div class="social">
+                <a  class="social-icon-link" href="https://twitter.com/alanyalialper" target="_blank"> 
+                    <i class="fa-brands fa-twitter blackTitle"></i>
+                </a>
+            </div>
+            <div class="social">
+                <a  class="social-icon-link"href="https://github.com/alperalanyali" target="_blank"> 
+                    <i class="fa-brands fa-github blackTitle" ></i>
+                </a>
+            </div>
+    </div>
+    <!-- Sending Email  -->
+    <script src="https://smtpjs.com/v3/smtp.js"></script>
+    <!-- My script -->
+    <script src="./js/main.js"></script> 
+</body>
+</html>

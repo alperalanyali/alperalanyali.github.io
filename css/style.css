@@ -1,0 +1,358 @@
+body{
+    background-color: gba(245,245,245,.8);
+    line-height: 1.5;
+    margin:0;
+    padding:0;
+}
+
+.header{    
+    position: fixed;
+    width: 100%;
+    
+    z-index: 1000;
+    background-color: #fff;
+    box-shadow: 0 10px 100px rgb(0 0 0 / 10%);    
+   
+}
+
+.image{
+    width: 50px;
+}
+.header-content{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1rem 2rem;
+    width: 100%;
+}
+.header-logo-container{
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    color:#333;
+    transition-duration: 0.3s;
+    transition-timing-function: ease;
+    transition-delay: 0s;
+    transition-property: color;
+}
+.header_logo-img-cont{
+width:50px;
+border-radius: 50%;
+overflow: hidden;
+margin-right:1.5rem;
+/* background-color: #facf0f; */
+
+}
+.header-logo-img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    display: block;
+}
+.header-logo-sub{
+    font-size: 1.8rem;
+    text-transform: uppercase;
+    font-weight: 700;
+    letter-spacing: 1px;
+}
+.header-logo-sub:hover{
+    color:#facf0f
+}
+.header-main{
+    margin-right: 50px;
+}
+.header-links{
+    display: flex;
+}
+.header-link{
+    padding: 2.2rem 3rem;
+    display: inline-block;
+    font-size: 14px;
+    color:#333;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-weight: 700;
+    transition: color 0.3s
+
+}
+.header-link:hover{
+    color:#facf0f;
+    cursor: pointer;
+}
+
+ul{
+    list-style-type: disc;
+    margin-block-start: 1em;
+    margin-block-end: 1em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+    padding-inline-start: 40px;
+}
+
+li{
+    list-style: none;
+}
+
+.social-container{
+    position: absolute;
+    top:50%;
+    transform:translateY(-50%);
+    background-color: #fff;
+    box-shadow: rgb(100 100 111 /20%) 0 7px 29px 0;
+    padding: 0.5rem;
+}
+.social{
+    width:100%; 
+}
+
+.social-icon-link{
+    /* width: 100%; */
+    display: block;
+    padding: 1rem;
+    border-radius: 5px;
+    
+}
+
+.blackTitle{
+    color:black;
+    width: 100%;
+}
+
+.content{
+    padding-top: 200px;
+}
+.primary{
+    font-size:48px;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    text-align: center;
+    color: #111;
+    font-weight: 800;
+}
+.text-primary{
+    font-size:32px;
+    color:#333;
+    text-align: center;
+    width: 100%;
+    line-height: 1.6;
+}
+.btn-container{
+    margin-top:5rem;
+    text-align: center;
+}
+
+.btn{
+    background-color: #facf0f;
+    color:#333;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    display: inline-block;
+    font-weight: 700;
+    box-shadow:0 5px 15px 0 rgb(0 0 0/ 15%);
+    transition: transform .3s;
+    border-radius: 5px;
+}
+.btn-yellow{
+    padding:20px 40px;
+    font-size: 30px;
+}
+a{
+    text-decoration: none;
+}
+.sec-main{
+    display: block;
+    font-size: 4rem;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    text-align: center;
+    margin-bottom: 3.5rem;
+    position: relative;
+    color:#111;
+    font-weight: 700;
+}
+.sec-sub{
+    display: block;
+    text-align: center;
+    font-size: 2rem;
+    color: #555;
+    font-weight: 500;
+    max-width: 80rem;
+    margin:auto;
+    line-height: 1.6;
+}
+.about{
+    margin-top:100px;
+    padding-top:200px;
+}
+.about-content{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 10rem;
+}
+.about-main{
+    margin-left:10%;
+    
+}
+
+.about-content-title{
+    font-weight: 600;
+    font-size: 2.8rem;
+    margin-bottom:3rem;
+}
+.skills{
+    display: flex;
+    flex-wrap: wrap;
+}
+.skill{
+    padding:1rem 2rem;
+    margin-bottom: 1.5rem;
+    margin-right: 1.5rem;
+    font-size: 1.6rem;
+    background-color: rgba(153,153,153,.2);
+    border-radius: 5px;
+    font-weight: 600;
+    color:#666
+}
+
+.about-content-detail-para{
+    font-size:1.8rem;
+    color:#666;
+    max-width: 60rem;
+    line-height: 1.7;
+    margin-bottom: 1rem;
+}
+
+.about-content-detail-para a {
+    text-decoration: underline;
+    font-weight: 700;
+    color:#facf0f;
+    margin:0 3px;
+}
+
+.contact-form-container{
+    box-shadow: rgb(100 100 111 / 20%);
+    background-color: #fff;
+    padding: 4rem;
+    margin-top:6rem;
+    max-width: 80rem;
+    text-align: right;
+    width: 60%;
+    margin:5rem auto 0 auto;
+}
+.form-field{
+    margin-bottom:4rem;
+}
+.form-label{
+    color:#666;
+    font-size:1.4rem;
+    letter-spacing: 1px;
+    font-weight: 700;
+    margin-bottom:1rem;
+    display: block;
+    text-align: left;
+}
+.form-input{
+    color:#333;
+    padding: 0.5rem;
+    width: 100%;
+    border: 1px solid #ebebeb;
+    font-size:1.6rem;
+    letter-spacing: 0;
+    background: #f0f0f0;
+    border-radius: 5px;
+    font-weight: 600;
+}
+.contact-btn{
+    width:30%;
+    padding: 0.5rem 1rem;
+    font-size:1.2rem;
+}
+.btn-theme{
+    background-color: #facf0f;
+    color: #111;
+}
+
+.btn{
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    display: inline-block;
+    font-weight: 700;
+    border-radius: 5px;
+    box-shadow: 0 5ox 15ox 0 rgb(0 0 0 /15%);
+}
+.row{
+    display: flex;
+    flex-wrap: wrap;
+}
+.col-4{
+    flex: 31%;
+    margin: 0 10px;
+    margin-bottom: 50px;
+    background-position: center;
+    background-size:cover;
+    min-height: 300px;
+    border-radius: 10px;
+    box-shadow: -2px 1px 8px 5px rgba(0, 0, 0, 0.3);
+    transition: transform 1s;
+    background-repeat: no-repeat;
+}
+.project1{
+    background-image: url('../images/musicplayer.jpg');
+}
+.project2{
+    background-image: url('../images/calculator.jpg')
+}
+
+.project3{
+    background-image: url('../images/dictionaryApp.jpg');
+}
+.project4{
+    background-image:  url('../images/MyBookList.jpg');
+}
+.project5{
+    background-image: url('../images/SortableGame.jpg');
+}
+.project6{
+    background-image: url('../images/Quiz.jpg');
+}
+.row .col-4 a {
+    text-decoration: none;
+}
+
+.short-navbar{
+    display: none;  
+    margin-right: 100px;
+}
+
+
+.hamburger{
+    width:50px;
+
+}
+li .dropdown {
+    display: inline-block;
+}
+.dropdown-content {
+    display: none;
+    position: absolute;
+    padding:10px;
+    margin-right: 50px;
+    background-color:white;
+    min-width: 100px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+    color:#292929
+}
+.dropdown:hover .dropdown-content{
+    display: inline-block;
+}
+@media screen and (max-width: 600px) {
+    .header-main{
+        display: none;
+    }
+    .short-navbar{
+        display: flex;
+    }
+
+}

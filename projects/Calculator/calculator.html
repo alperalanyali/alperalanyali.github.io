@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <link rel="stylesheet" href="calculator.css">
+  </head>
+  <body>
+
+<div id="maincontainer">
+  <div id="screenContainer">
+    <p id="numberOnScreen">0</p>
+  </div>
+  <div id="buttonContainer">
+    <div class="buttonRow">
+        <button onclick="clearAll()" type="button" name="button" class="calcButton">AC</button>
+        <button onclick="changeSign()" type="button" name="button" class="calcButton">+/-</button>
+        <button onclick="getOperand('%')" type="button" name="button" class="calcButton">%</button>
+        <button onclick="getOperand('/')" type="button" name="button" class="calcButton">/</button>
+    </div>
+    <div class="buttonRow">
+        <button onclick="getNumber('7')" type="button" name="button" class="calcButton">7</button>
+        <button onclick="getNumber('8')" type="button" name="button" class="calcButton">8</button>
+        <button onclick="getNumber('9')" type="button" name="button" class="calcButton">9</button>
+        <button onclick="getOperand('*')" type="button" name="button" class="calcButton">*</button>
+    </div>
+    <div class="buttonRow">
+        <button  onclick="getNumber('4')" type="button" name="button" class="calcButton">4</button>
+        <button  onclick="getNumber('5')"type="button" name="button" class="calcButton">5</button>
+        <button onclick="getNumber('6')" type="button" name="button" class="calcButton">6</button>
+        <button onclick="getOperand('-')" type="button" name="button" class="calcButton">-</button>
+    </div>
+    <div class="buttonRow">
+      <button onclick="getNumber('1')" type="button" name="button" class="calcButton">1</button>
+      <button onclick="getNumber('2')" type="button" name="button" class="calcButton">2</button>
+      <button onclick="getNumber('3')" type="button" name="button" class="calcButton">3</button>
+      <button onclick="getOperand('+')" type="button" name="button" class="calcButton">+</button>
+    </div>
+    <div class="buttonRow">
+        <button  onclick="getNumber('0')" type="button" name="button" class="calcButton" >0</button>
+        <button onclick="addDot()" type="button" name="button" class="calcButton">.</button>
+        <button onclick="doCalculation()" type="button" name="button" class="calcButton">=</button>
+        <button type="button" name="button" class="calcButton"></button>
+    </div>
+
+  </div>
+</div>
+    <script src="calculator.js">
+    </script>
+  </body>
+</html>
