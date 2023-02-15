@@ -158,7 +158,7 @@ function checkBasketCount(){
 }
 
 function addToBasket(index){    
-    baskets.push(products[index]);
+    baskets.push(filterProducts[index]);
     var toastDomSuccess = document.getElementById("liveToast");
     var toast = new bootstrap.Toast(toastDomSuccess);
     toast.show();
@@ -168,37 +168,81 @@ function addToBasket(index){
 
 function displayBasketTable(){
     let basketTBodyElement = document.querySelector('#basketTBody');
+    let total = 0;
     let element = "";
     for(let i = 0; i < baskets.length;i++){
+        total += baskets[i].price
         element += `
             <tr id="trElement${i}">
-                <td>${i+1}</td>
-                <td>${baskets[i].name}</td>
-                <td><img src="${baskets[i].image}" width="150px"></td>
-                <td>1</td>
-                <td>${baskets[i].price}</td>
-                <td>${baskets[i].price * 1}</td>
-                <td> 
+                <td class="align-middle">${i+1}</td>
+                <td class="align-middle ">${baskets[i].name}</td>
+                <td class="align-middle"><img src="${baskets[i].image}" width="150px"></td>
+                <td class="align-middle text-center">1</td>
+                <td class="align-middle text-center">${baskets[i].price}</td>
+                <td class="align-middle">${baskets[i].price * 1}</td>
+                <td class="align-middle"> 
                     <button class="btn btn-outline-danger" onclick="removeById(${i})">
                         <i class="fa fa-trash"></i>
                     </button>
                 </td>
             </tr>
         `;
-    }    
+    } 
+    element += `<tr>
+                        <td colspan="5" class="text-end"> Total:</td>
+                        <td colspan="2">${total}</td>
+                </tr>`   ;
     basketTBodyElement.innerHTML = element;
 }
 
+function displayOrders(){
+    let orderTBodyElement = document.querySelector('#orderTBody');
+    let orderBody = "";
+    for(var i = 0; i <  orders.length;i++){
+        orderBody+= `<tr>
+                        <td class="align-middle">${i+1}</td>
+                        <td class="align-middle">${orders[i].orderId}</td>
+                        <td class="align-middle">
+                            <table class="table table-bordered">
+                                <thead>
+                                        <tr>
+                                            <th>Product Name</th>
+                                            <th>Product Image</th>
+                                            <th>Pcs</th>
+                                            <th>Price</th>
+                                            <th>Total</th>
+                                        </tr>
+                                </thead>
+                                <tbody>
+                        `;
+            for(let j = 0;j < orders[i].baskets.length;j++){
+             orderBody += `
+                            <tr>
+                                    <td class="align-middle">${orders[i].baskets[j].name}</td>
+                                    <td class="align-middle"><img src="${orders[i].baskets[j].image}" width="250px"></td>
+                                    <td class="align-middle">1</td>
+                                    <td class="align-middle">${orders[i].baskets[j].price}</td>           
+                                    <td class="align-middle">${orders[i].baskets[j].price * 1}</td>                                
+                            </tr>
+             ` ;                  
+            }                    
+            orderBody+= `  <tr>
+            <td colspan="4" class="text-end">Total:</td>
+            <td>${orders[i].total}</td>
+        </tr>`    
+                        
+        orderBody+=     `       </tbody>
+                            </table>
+                        </td>
+            </tr>`;
+    }          
+    orderTBodyElement.innerHTML = orderBody;
+}
+
+
 function confirmOrder(){
+    debugger;
     let paymentBtn = document.getElementById('paymentBtn');;
-    let totalAmount = 0;
-    baskets.forEach(element => {
-        totalAmount += element.price;
-    });    
-    let order = {
-        "baskets":baskets,
-        "total":totalAmount
-    }
     paymentBtn.click();
     
 }
@@ -224,4 +268,24 @@ function selectCategory(category){
         }
     });
     displayProducts();
+}
+
+function completeOrder(){
+    let paymentCloseBtn = document.querySelector('#paymentCloseBtn');
+    let totalAmount = 0;
+    baskets.forEach(element => {
+        totalAmount += element.price;
+    });    
+    let order = {
+        "orderId": new Date().toString('yyyyMMddHHmmss'),
+        "baskets":baskets,
+        "total":totalAmount
+    }
+    baskets=[];
+    displayBasketCount();
+    displayBasketTable();
+    orders.push(order);
+    displayOrders();
+    paymentCloseBtn.click();
+    
 }

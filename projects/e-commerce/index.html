@@ -27,7 +27,7 @@
     <!-- Navbar -->
     <nav class="navbar navbar-expand-lg bg-body-tertiary">
         <div class="container-fluid">
-          <a class="navbar-brand" href="#">Navbar</a>
+          <a class="navbar-brand" href="#">E-commerce</a>
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
           </button>
@@ -37,7 +37,7 @@
                 <a class="nav-link active" aria-current="page" href="#">Products</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="#">Orders</a>
+                <a class="nav-link" href="#" data-bs-toggle="modal" data-bs-target="#orderModal">Orders</a>
               </li>       
               <!-- <li class="nav-item">
                 <a class="nav-link"  data-bs-toggle="modal" data-bs-target="#categoryModal">Add Category</a>
@@ -136,12 +136,47 @@
           </div>
         </div>
       </div>
+      <!-- Order Modal -->
+      <div class="modal fade" id="orderModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true" data-bs-backdrop="static" data-bs-keyboard="false">
+        <div class="modal-dialog modal-xl  modal-dialog-centered modal-dialog-scrollable">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h1 class="modal-title fs-5" id="exampleModalLabel">Orders</h1>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+               <table class="table table-bordered">
+                    <thead>
+                            <tr>
+                              <thead>
+                                <tr>
+                                    <th>#</th>
+                                    <th>Order Date</th>
+                                    <th>Products</th>
+                                </tr>
+                            </thead>
+                            </tr>
+                    </thead>
+                    <tbody id="orderTBody">
+
+                    </tbody>
+               </table>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-outline-danger w-100" data-bs-dismiss="modal">Close</button>
+           
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Payment Model -->
       <div class="modal fade" id="paymentModal" aria-hidden="true" aria-labelledby="exampleModalToggleLabel2" tabindex="-1">
         <div class="modal-dialog modal-dialog-centered modal-xl ">
           <div class="modal-content">
             <div class="modal-header">
               <h1 class="modal-title fs-5" id="exampleModalToggleLabel2">Payment</h1>
-              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+              <button type="button" class="btn-close" id="paymentCloseBtn" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
                 <div class="row">
@@ -182,7 +217,7 @@
                 </div>
             </div>
             <div class="modal-footer">
-              <button class="btn btn-primary" data-bs-dismiss="modal"  data-bs-toggle="modal">Complete the Order</button>
+              <button class="btn btn-primary" onclick="completeOrder()" >Complete the Order</button>
             </div>
           </div>
         </div>
