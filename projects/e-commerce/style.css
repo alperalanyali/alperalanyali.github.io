@@ -25,3 +25,9 @@ a{
     border-radius: 10px;
     font-weight: 700;
 }
+
+@media screen and (max-width:600px) {
+    .col-4{
+        width:100%
+    }
+}
