@@ -298,6 +298,10 @@ a{
     transition: transform 1s;
     background-repeat: no-repeat;
 }
+
+.col-4 a {
+    color: darkgrey;
+}
 .project1{
     background-image: url('../images/musicplayer.jpg');
 }

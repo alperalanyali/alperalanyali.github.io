@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>E-commerce</title>
+    <link rel="icon" type="image/x-icon" href="./images/favicon.png">
+    <!-- Bootstrap css -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+    <!-- Font Awesome -->
+    <script src="https://kit.fontawesome.com/242ee111e2.js" crossorigin="anonymous"></script>
+
+
+    <!-- Custom css -->
+    <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+  
+<div class="toast-container position-fixed bottom-0 end-0 p-3">
+  <div id="liveToast" class="toast" role="alert" aria-live="assertive" aria-atomic="true">    
+    <div class="toast-body">
+      Item has been added to basket.
+    </div>
+  </div>
+</div>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg bg-body-tertiary">
+        <div class="container-fluid">
+          <a class="navbar-brand" href="#">Navbar</a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+              <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="#">Products</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">Orders</a>
+              </li>       
+              <!-- <li class="nav-item">
+                <a class="nav-link"  data-bs-toggle="modal" data-bs-target="#categoryModal">Add Category</a>
+              </li>  
+              <li class="nav-item">
+                <a class="nav-link"  data-bs-toggle="modal" data-bs-target="#productModal">Add Product</a>
+              </li>   -->
+            </ul>
+            <button class="btn btn-outline-primary me-4" data-bs-toggle="modal" data-bs-target="#loginModal" >Login</button>
+            <button onclick="displayBasketTable()" type="button"  class="btn btn-outline-success position-relative" data-bs-toggle="modal" data-bs-target="#basketModal" title="My Basket">
+              <i class="fa-solid fa-basket-shopping"></i>
+                <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger" id="basketCount">                                    
+                </span>
+              </button>
+     
+          </div>
+        </div>
+      </nav>      
+      <!-- Navbar -->
+    
+    <!--Products and Categories  -->
+    <div class="row mt-4 mx-1" style="text-align: center; ">
+            <div class="col-md-2 aside">
+                <span><b>Categories</b></span>
+                <ul class="categories">
+                    <li class="category"><a href="#">Television</a></li>
+                    <li class="category"><a href="#"></a>Computer</a></li>
+
+                </ul>
+            </div>
+            <div class="col-md-10" id="products">
+                
+                
+            </div>                       
+    </div>
+    
+    <!-- Login Modal -->
+  <div class="modal fade" id="loginModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true" data-bs-backdrop="static" data-bs-keyboard="false">
+        <div class="modal-dialog modal-xl  modal-dialog-centered modal-dialog-scrollable">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h1 class="modal-title fs-5" id="exampleModalLabel">Basket</h1>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+              <form>
+                  <input id="username" type="text" placeholder="Enter your email or username" class="form-control mt-4">
+                  
+                  <input id="password" type="password" placeholder="Enter your email or username" class="form-control mt-4">
+                  
+                  <div class="row mt-5">
+                      <div class="col-md-6">
+                        <button class="btn btn-outline-secondary" data-bs-dismiss="modal">Forget Password?</button>
+                                 
+                      </div>
+                      <div class="col-md-6">
+                        <button class="btn btn-outline-primary" onclick="login()">Login</button>     
+                      </div>
+                  </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    <!-- Basket Modal -->
+    <div class="modal fade" id="basketModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true" data-bs-backdrop="static" data-bs-keyboard="false">
+        <div class="modal-dialog modal-xl  modal-dialog-centered modal-dialog-scrollable">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h1 class="modal-title fs-5" id="exampleModalLabel">Basket</h1>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+               <table class="table table-bordered">
+                    <thead>
+                            <tr>
+                                    <th>#</th>
+                                    <th>Product Name</th>
+                                    <th>Product Image</th>
+                                    <th>Pcs</th>
+                                    <th>Price</th>
+                                    <th>Total</th>
+                            </tr>
+                    </thead>
+                    <tbody id="basketTBody">
+
+                    </tbody>
+               </table>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-outline-danger" data-bs-dismiss="modal">Cancel</button>
+              <button id="confirmBtn" type="button" class="btn btn-outline-primary" onclick="confirmOrder()">Confirm Order</button>
+              <button id="paymentBtn" style="visibility: hidden;" data-bs-target="#paymentModal" data-bs-toggle="modal"></button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="modal fade" id="paymentModal" aria-hidden="true" aria-labelledby="exampleModalToggleLabel2" tabindex="-1">
+        <div class="modal-dialog modal-dialog-centered modal-xl ">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h1 class="modal-title fs-5" id="exampleModalToggleLabel2">Payment</h1>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <div class="row">
+                    <div class="col-md-6">
+                      <div class="col-md-12">
+                        <label class="text-secondary">Card Number</label>                
+                      </div>
+                      <div class="col-md-12">
+                        <input class="form-control w-100" type="text" placeholder=".... .... .... ....">
+                      </div>
+                    </div>
+                    <div class="col-md-6">
+                      <div class="col-md-12">
+                        <label class="text-secondary">Name on the card</label>
+                      </div>
+                      <div class="col-md-12">
+                        <input class="form-control w-100"  type="text" placeholder="Name and surname of the card holder">
+                      </div>
+                    </div>
+                </div>
+                <div class="row mt-4">
+                    <div class="col-md-6">
+                        <div class="col-md-12">
+                          <label class="text-secondary">Expiration Date</label>
+                        </div>
+                        <div class="col-md-12">
+                          <input class="form-control w-100"  type="text" placeholder="Month/Year">
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                      <div class="col-md-12">
+                        <label class="text-secondary" >Security Code</label>
+                      </div>
+                      <div class="col-md-12">
+                        <input class="form-control w-100"  type="text" placeholder="CVC/CVV">
+                      </div>
+                  </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+              <button class="btn btn-primary" data-bs-target="#exampleModalToggle" data-bs-toggle="modal">Back to first</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    
+      <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
+    <!-- Bootstrap JS -->
+<!-- Toastr Js -->
+     
+<script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js" integrity="sha512-VEd+nq25CkR676O+pLBnDW09R7VQX9Mdiij052gVCp5yVH3jGtH70Ho/UUv4mJDsEdTvqRCFZg0NKGiojGnUCw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script></script>
+<!-- JQuery -->
+<script src="https://code.jquery.com/jquery-3.6.3.min.js" integrity="sha256-pvPw+upLPUjgMXY0G+8O0xUf+/Im1MZjXxxgOcBQBXU=" crossorigin="anonymous"></script>
+    <!-- Custom js -->
+      <script src="./javascript/script.js"></script>
+    <!-- Custom js -->
+</body>
+</html>

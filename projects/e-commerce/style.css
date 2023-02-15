@@ -1,0 +1,27 @@
+body{
+    background-color: #dcdcdc;
+}
+
+.aside{    
+    border-radius: 20px;
+    background-color: white;
+    height:250px;
+    
+}
+
+a{
+    text-decoration: none;
+    color:black
+}
+.categories{
+    list-style-type: none;
+}
+
+.category{
+    padding:4px
+}
+.category:hover{
+    background-color: #dcdcdc;
+    border-radius: 10px;
+    font-weight: 700;
+}
