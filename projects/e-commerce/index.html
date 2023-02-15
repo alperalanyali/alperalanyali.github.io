@@ -63,7 +63,7 @@
             <div class="col-md-2 aside">
                 <span><b>Categories</b></span>
                 <ul class="categories">
-                    <li class="category"><a href="#">Television</a></li>
+                    <li class="category"><button onclick="selectCategory('')">Television</button></li>
                     <li class="category"><a href="#"></a>Computer</a></li>
 
                 </ul>
@@ -120,6 +120,7 @@
                                     <th>Pcs</th>
                                     <th>Price</th>
                                     <th>Total</th>
+                                    <th></th>
                             </tr>
                     </thead>
                     <tbody id="basketTBody">
@@ -181,7 +182,7 @@
                 </div>
             </div>
             <div class="modal-footer">
-              <button class="btn btn-primary" data-bs-target="#exampleModalToggle" data-bs-toggle="modal">Back to first</button>
+              <button class="btn btn-primary" data-bs-dismiss="modal"  data-bs-toggle="modal">Complete the Order</button>
             </div>
           </div>
         </div>

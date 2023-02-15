@@ -1,5 +1,8 @@
 let categories = [
     {
+        name :"All"
+    },
+    {
      
         name:'Television'
     },
@@ -78,7 +81,7 @@ let products =[
         category:'Tablet'
     },
 ];
-
+let filterProducts = [...products];
 let baskets = [];
 let orders = [];
 
@@ -102,17 +105,17 @@ function displayBasketCount(){
 function displayProducts(){
     let productsElement = document.querySelector('#products');
     let product = ` <div class="row mt-4 mx-4">`;
-    for (let i = 0; i <products.length; i++){
+    for (let i = 0; i <filterProducts.length; i++){
         product += `
     
         <div class="col-4 mt-4">
             <div class="card">
-                <img src="${products[i].image}" style="width:100%; height:220px; object-fit: cover;object-position: 5px 20% class="card-img-top" alt="...">
+                <img src="${filterProducts[i].image}" style="width:100%; height:220px; object-fit: cover;object-position: 5px 20% class="card-img-top" alt="...">
                 <div class="card-body">
-                  <h5 class="card-title">${products[i].name}</h5>
-                  <p class="card-text">Price: <b>${products[i].price} TL </b></p>
-                  <p class="card-text">InStock: <b>${products[i].inStock} pcs</b> </p>
-                  <p class="card-text">${products[i].category}</p>
+                  <h5 class="card-title">${filterProducts[i].name}</h5>
+                  <p class="card-text">Price: <b>${filterProducts[i].price} TL </b></p>
+                  <p class="card-text">InStock: <b>${filterProducts[i].inStock} pcs</b> </p>
+                  <p class="card-text">${filterProducts[i].category}</p>
                   <button onclick="addToBasket(${i})" href="#" class="btn btn-outline-primary">
                      <i class="fa-solid fa-basket-shopping"></i>
                     Add to Basket
@@ -131,12 +134,14 @@ function displayCategories(){
     let categoriesElement = document.querySelector('.categories');
     let categoryElement = "";
     for (let i = 0; i < categories.length;i++){
-        categoryElement += ` <li class="category"><a href="#">${categories[i].name}</a></li>`
+        categoryElement += ` <li class="category"><a onclick="selectCategory('${categories[i].name}')">${categories[i].name}</a></li>`
     }    
     categoriesElement.innerHTML = categoryElement;   
 }
 
 function checkBasketCount(){
+
+    debugger;
     let confirmBtn = document.querySelector('#confirmBtn');
     if(baskets.length ==0){
         try{
@@ -159,6 +164,7 @@ function addToBasket(index){
     var toastDomSuccess = document.getElementById("liveToast");
     var toast = new bootstrap.Toast(toastDomSuccess);
     toast.show();
+    checkBasketCount();
     displayBasketCount();
 }
 
@@ -167,13 +173,18 @@ function displayBasketTable(){
     let element = "";
     for(let i = 0; i < baskets.length;i++){
         element += `
-            <tr>
+            <tr id="trElement${i}">
                 <td>${i+1}</td>
                 <td>${baskets[i].name}</td>
                 <td><img src="${baskets[i].image}" width="150px"></td>
                 <td>1</td>
                 <td>${baskets[i].price}</td>
                 <td>${baskets[i].price * 1}</td>
+                <td> 
+                    <button class="btn btn-outline-danger" onclick="removeById(${i})">
+                        <i class="fa fa-trash"></i>
+                    </button>
+                </td>
             </tr>
         `;
     }    
@@ -196,6 +207,25 @@ function confirmOrder(){
 
 
 function login(){
+}
 
-   
+function removeById(index){
+    debugger;
+    baskets.splice(index, 1);
+    let trElement = document.getElementById('trElement'+index);
+    trElement.remove();
+    displayBasketCount();
+    checkBasketCount();
+}
+
+function selectCategory(category){
+    debugger;
+    filterProducts = products.filter(product => {
+        if(category != 'All'){
+            return product.category == category;
+        }else {
+            return product
+        }
+    });
+    displayProducts();
 }
