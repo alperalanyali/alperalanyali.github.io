@@ -140,8 +140,6 @@ function displayCategories(){
 }
 
 function checkBasketCount(){
-
-    debugger;
     let confirmBtn = document.querySelector('#confirmBtn');
     if(baskets.length ==0){
         try{
@@ -209,8 +207,7 @@ function confirmOrder(){
 function login(){
 }
 
-function removeById(index){
-    debugger;
+function removeById(index){    
     baskets.splice(index, 1);
     let trElement = document.getElementById('trElement'+index);
     trElement.remove();
@@ -218,8 +215,7 @@ function removeById(index){
     checkBasketCount();
 }
 
-function selectCategory(category){
-    debugger;
+function selectCategory(category){    
     filterProducts = products.filter(product => {
         if(category != 'All'){
             return product.category == category;
