@@ -298,7 +298,9 @@ a{
     transition: transform 1s;
     background-repeat: no-repeat;
 }
-
+.col-4-empty{
+    flex:31%;
+}
 .col-4 a {
     color: darkgrey;
 }
@@ -320,6 +322,9 @@ a{
 }
 .project6{
     background-image: url('../images/Quiz.jpg');
+}
+.project7{
+    background-image: url('../images/eticaret.gif');
 }
 .row .col-4 a {
     text-decoration: none;
